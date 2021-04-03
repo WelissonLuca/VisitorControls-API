@@ -1,0 +1,26 @@
+{
+  "name": "VisitorControlAPI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js -e js,json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AfroDev2020/VisitorControlAPI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AfroDev2020/VisitorControlAPI/issues"
+  },
+  "homepage": "https://github.com/AfroDev2020/VisitorControlAPI#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

@@ -14,6 +14,6 @@ app.use("/", visitRouter);
 
 
 
-app.listen(3000, () => console.log('server is running'))
+app.listen(process.env.APP_PORT, () => console.log('server is running'))
 
 

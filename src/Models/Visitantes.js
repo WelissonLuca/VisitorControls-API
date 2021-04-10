@@ -7,9 +7,10 @@ class Visitantes extends Model {
             rg: DataTypes.STRING,
             tipo: DataTypes.ENUM('visitante', 'prestador'),
         },{
-            sequelize, tableName:'visitantes',
+            sequelize, 
+            tableName:'visitantes',
         })
     }
 }
 
-module.exports = Visitantes
+module.exports = Visitantes;

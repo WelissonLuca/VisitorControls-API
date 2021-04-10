@@ -7,7 +7,7 @@ class Visitantes extends Model {
             rg: DataTypes.STRING,
             tipo: DataTypes.ENUM('visitante', 'prestador'),
         },{
-            sequelize
+            sequelize, tableName:'visitantes',
         })
     }
 }

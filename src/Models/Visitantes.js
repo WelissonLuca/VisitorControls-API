@@ -5,11 +5,10 @@ class Visitantes extends Model {
         super.init({
             nome: DataTypes.STRING,
             rg: DataTypes.STRING,
-            tipo: DataTypes.STRING,
+            tipo: DataTypes.ENUM('visitante', 'prestador'),
         },{
             sequelize
         })
     }
 }
 
-module.exports = Visitantes;

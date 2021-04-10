@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false,
       },
       tipo:{
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM('visitante', 'prestador'),
         allowNull: false,
       },
       created_at: {

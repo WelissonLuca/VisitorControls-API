@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/AfroDev2020/VisitorControlAPI#readme",
   "dependencies": {
-    "config": "^3.3.6",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",

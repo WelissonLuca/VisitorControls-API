@@ -12,3 +12,4 @@ class Visitantes extends Model {
     }
 }
 
+module.exports = Visitantes

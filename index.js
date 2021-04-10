@@ -1,7 +1,7 @@
 const express = require('express');
 
-const visitorsRouter = require("./routes/visitors.routes"); // Rota dos visitantes
-const visitRouter = require("./routes/visit.routes"); // Rotas das visitas
+const visitorsRouter = require("./src/routes/visitors.routes"); // Rota dos visitantes
+const visitRouter = require("./src/routes/visit.routes"); // Rotas das visitas
 const app = express();
 
 

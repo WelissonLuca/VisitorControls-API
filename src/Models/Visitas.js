@@ -3,7 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 class Visitas extends Model {
     static init(sequelize){
         super.init({
-            bloco: DataTypes.INTENGER,
+            bloco: DataTypes.INTEGER,
             apartamento: DataTypes.STRING,
             permitido: DataTypes.BOOLEAN,
         },{

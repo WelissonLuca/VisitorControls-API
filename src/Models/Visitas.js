@@ -3,9 +3,10 @@ const { Model, DataTypes } = require('sequelize');
 class Visitas extends Model {
     static init(sequelize){
         super.init({
-            bloco: DataTypes.INTENGER,
-            apartamento: DataTypes.STRING,
+            bloco: DataTypes.INTEGER,
+            apartamento: DataTypes.INTEGER,
             permitido: DataTypes.BOOLEAN,
+            visitante_id:DataTypes.INTEGER
         },{
             sequelize
         })

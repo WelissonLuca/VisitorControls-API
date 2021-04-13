@@ -5,6 +5,7 @@ const visitorsRouter = require("./routes/visitors.routes"); // Rota dos visitant
 const visitRouter = require("./routes/visit.routes"); // Rotas das visitas
 const app = express();
 
+require('./database')
 
 app.use(express.json());
 

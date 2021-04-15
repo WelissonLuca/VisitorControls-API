@@ -21,4 +21,15 @@ module.exports = {
 				.send({ error: err.messages });
 		}
 	},
+
+	async list (req, res) {
+		try {
+			const todosVisitantes = await Visitors.findAll();
+			return res.status(dictionary.status.SUCCESS).send(todosVisitantes);
+		} catch(err) {
+			return res
+				.status(dictionary.status.NOT_FOUND)
+				.send({error: err.messages})
+		} 		
+	}
 };

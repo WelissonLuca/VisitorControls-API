@@ -9,7 +9,7 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-      name:{
+      nome:{
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -24,12 +24,12 @@ module.exports = {
       created_at: {
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        allowNull: false
+        allowNull: false,
       },
       updated_at: {
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        allowNull: false
+        allowNull: false,
       }
     })
   },

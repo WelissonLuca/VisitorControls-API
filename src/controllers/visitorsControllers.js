@@ -36,5 +36,23 @@ module.exports = {
 				.status(dictionary.status.NOT_FOUND)
 				.send({error: err.messages})
 		} 		
+	},
+
+	async update (req, res) {
+		try {
+			const { id } = req.params;
+			const { nome } = req.body;
+			const updatedVisitor = await Visitors.update(
+				{nome},	
+				{where: { id }}
+			);
+			return res
+				.status(dictionary.status.SUCCESS)
+				.send({updatedVisitor});
+		} catch (err) {
+			return res
+				.status(dictionary.status.BAD_REQUEST)
+				.send({error: err.message})
+		}
 	}
 };

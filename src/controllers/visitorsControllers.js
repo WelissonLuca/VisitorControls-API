@@ -31,10 +31,42 @@ module.exports = {
 		} catch (err) {
 			return res
 				.status(dictionary.status.NOT_FOUND)
-				.send({ error: err.messages });
-		}
+				.send({error: err.messages})
+		} 		
 	},
 
+	async search(req, res){
+
+		try{
+
+			const { rg } = req.params;
+			
+			const visitor = await Visitors.findOne({
+				where: {
+					rg
+				}
+			});
+	
+			if(!visitor){
+				return res
+						.status(dictionary.status.BAD_REQUEST)
+						.send(dictionary.messages.USUARIO_EXISTS);
+			}
+	
+			return res.status(dictionary.status.SUCCESS).json({
+				visitors,
+			});
+	
+		}catch(err){
+			return res
+			.status(dictionary.status.BAD_REQUEST)
+			.send({ error: err.messages });
+		}
+		
+
+	},
+
+	
 	async update(req, res) {
 		try {
 			const { id } = req.params;
@@ -54,4 +86,5 @@ module.exports = {
 				.send({ error: err.message });
 		}
 	},
+
 };

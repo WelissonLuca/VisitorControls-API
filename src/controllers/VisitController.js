@@ -1,5 +1,6 @@
 const Visitas = require("../Models/Visitas")
 const dictionary = require("../utils/dictionary");
+const Visitors = require("../Models/Visitantes");
 
 class VisitController {
 
@@ -25,6 +26,13 @@ class VisitController {
         }
     }
     
+    async findVisitsRG(req,res){
+        const {rg} = req.body
+        const visitor = await Visitors.findOne({ where: { rg:rg } })
+        const visits = await Visitas.findAll({where: { visitante_id: visitor.id}})
+        return res.send(visits)
+
+    }
 }
 
 module.exports =  new VisitController

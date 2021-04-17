@@ -7,41 +7,41 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false
+        allowNull: false,
       },
       bloco: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
       apartamento: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
       },
       permitido: {
         type: Sequelize.BOOLEAN,
-        allowNull: false
+        allowNull: false,
       },
       visitante_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'visitantes', key: 'id' },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       created_at: {
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        allowNull: false
+        allowNull: false,
       },
       updated_at: {
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        allowNull: false
-      }
+        allowNull: false,
+      },
     })
   },
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('visitas')
-  }
+  },
 }

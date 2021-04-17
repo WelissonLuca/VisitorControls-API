@@ -1,7 +1,6 @@
 require('dotenv').config()
 
 module.exports = {
-
   dialect: 'mysql',
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
@@ -10,6 +9,6 @@ module.exports = {
   database: process.env.DB_DATABASE,
   define: {
     timestamps: true,
-    underscored: true
-  }
+    underscored: true,
+  },
 }

@@ -7,34 +7,34 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false
+        allowNull: false,
       },
       nome: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       rg: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       tipo: {
         type: Sequelize.ENUM('visitante', 'prestador'),
-        allowNull: false
+        allowNull: false,
       },
       created_at: {
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        allowNull: false
+        allowNull: false,
       },
       updated_at: {
         type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        allowNull: false
-      }
+        allowNull: false,
+      },
     })
   },
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('visitantes')
-  }
+  },
 }

@@ -2,7 +2,7 @@ const Visitors = require('../models/Visitors')
 const dictionary = require('../utils/dictionary')
 
 module.exports = {
-  async store (req, res) {
+  async store(req, res) {
     try {
       const { nome, rg, tipo } = req.body
       const visitor = await Visitors.findOne({ where: { rg } })
@@ -14,18 +14,18 @@ module.exports = {
       const visitors = await Visitors.create({
         nome,
         rg,
-        tipo
+        tipo,
       })
       return res.status(dictionary.status.CREATED).json({
         message: dictionary.messages.USER_CREATED,
-        visitors
+        visitors,
       })
     } catch (err) {
       return res.status(dictionary.status.BAD_REQUEST).send({ error: err })
     }
   },
 
-  async list (req, res) {
+  async list(req, res) {
     try {
       const todosVisitantes = await Visitors.findAll()
       return res.status(dictionary.status.SUCCESS).send(todosVisitantes)
@@ -36,14 +36,14 @@ module.exports = {
     }
   },
 
-  async search (req, res) {
+  async search(req, res) {
     try {
       const { rg } = req.params
 
       const visitor = await Visitors.findOne({
         where: {
-          rg
-        }
+          rg,
+        },
       })
 
       if (!visitor) {
@@ -53,7 +53,7 @@ module.exports = {
       }
 
       return res.status(dictionary.status.SUCCESS).json({
-        visitor
+        visitor,
       })
     } catch (err) {
       return res
@@ -62,7 +62,7 @@ module.exports = {
     }
   },
 
-  async update (req, res) {
+  async update(req, res) {
     try {
       const { id } = req.params
       const { nome } = req.body
@@ -81,5 +81,5 @@ module.exports = {
         .status(dictionary.status.BAD_REQUEST)
         .send({ error: err.message })
     }
-  }
+  },
 }

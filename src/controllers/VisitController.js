@@ -5,17 +5,24 @@ const Sequelize = require("sequelize");
 
 class VisitController {
 	async store(req, res) {
-		const { bloco, apartamento, permitido, visitante_id } = req.body;
+		const { bloco, apartamento, permitido, rg } = req.body;
 		try {
+			const visitor = await Visitors.findOne({ where: { rg:rg } });
+			if (visitor === null){
+				return res
+					.status(dictionary.status.BAD_REQUEST)
+					.send(dictionary.messages.USER_NOT_FOUND);
+			}
+
 			const visit = await Visitas.create({
 				bloco: bloco,
 				apartamento: apartamento,
 				permitido: permitido,
-				visitante_id: visitante_id,
+				visitante_id: visitor.id,
 			});
 
 			return res.status(dictionary.status.CREATED).json({
-				message: dictionary.messages.USER_CREATED,
+				message: dictionary.messages.VISIT_CREATED,
 				visit,
 			});
 		} catch (err) {

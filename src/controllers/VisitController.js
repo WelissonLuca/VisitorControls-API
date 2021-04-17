@@ -1,20 +1,19 @@
-const Visitas = require("../Models/Visitas");
+const Visits = require("../models/Visits");
 const dictionary = require("../utils/dictionary");
-const Visitors = require("../Models/Visitantes");
+const Visitors = require("../models/Visitors");
 const Sequelize = require("sequelize");
 
 class VisitController {
 	async store(req, res) {
 		const { bloco, apartamento, permitido, rg } = req.body;
 		try {
-			const visitor = await Visitors.findOne({ where: { rg:rg } });
-			if (visitor === null){
+			const visitor = await Visitors.findOne({ where: { rg: rg } });
+			if (visitor === null)
 				return res
 					.status(dictionary.status.BAD_REQUEST)
 					.send(dictionary.messages.USER_NOT_FOUND);
-			}
 
-			const visit = await Visitas.create({
+			const visit = await Visits.create({
 				bloco: bloco,
 				apartamento: apartamento,
 				permitido: permitido,
@@ -38,7 +37,7 @@ class VisitController {
 				return res
 					.status(dictionary.status.BAD_REQUEST)
 					.send(dictionary.messages.USER_NOT_FOUND);
-			const visits = await Visitas.findAll({
+			const visits = await Visits.findAll({
 				where: { visitante_id: visitor.id },
 			});
 			return res.json(visits);
@@ -55,7 +54,7 @@ class VisitController {
 		const finalDate = new Date(`${date} 23:59:59`);
 
 		const Op = Sequelize.Op;
-		const visits = await Visitas.findAll({
+		const visits = await Visits.findAll({
 			where: {
 				created_at: {
 					[Op.between]: [startDate, finalDate],

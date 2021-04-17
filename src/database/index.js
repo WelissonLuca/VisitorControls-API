@@ -1,9 +1,8 @@
-const Sequelize = require('sequelize')
-const configDB = require('../config/database')
+const Sequelize = require("sequelize");
+const configDB = require("../config/database");
 
-const Visitantes = require('../Models/Visitantes')
-const Visitas = require('../Models/Visitas')
-
+const Visitantes = require("../models/Visitors");
+const Visitas = require("../models/Visits");
 
 const connection = new Sequelize(configDB);
 

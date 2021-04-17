@@ -1,4 +1,4 @@
-const Visitors = require("../Models/Visitantes");
+const Visitors = require("../models/Visitors");
 const dictionary = require("../utils/dictionary");
 
 module.exports = {

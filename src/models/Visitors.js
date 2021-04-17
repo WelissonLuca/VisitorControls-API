@@ -14,7 +14,7 @@ class Visitantes extends Model {
 						len: {
 							args: [3, 30],
 							msg: dictionary.messages.NAME_NOT_VALID,
-						},      
+						},
 					},
 				},
 				rg: {

@@ -1,4 +1,5 @@
 const Visitors = require("../Models/Visitantes");
+const { search } = require("../routes/visitors.routes");
 const dictionary = require("../utils/dictionary");
 
 
@@ -36,5 +37,36 @@ module.exports = {
 				.status(dictionary.status.NOT_FOUND)
 				.send({error: err.messages})
 		} 		
+	},
+
+	async search(req, res){
+
+		try{
+
+			const { rg } = req.params;
+			
+			const visitor = await Visitors.findOne({
+				where: {
+					rg
+				}
+			});
+	
+			if(!visitor){
+				return res
+						.status(dictionary.status.BAD_REQUEST)
+						.send(dictionary.messages.USUARIO_EXISTS);
+			}
+	
+			return res.status(dictionary.status.SUCCESS).json({
+				visitors,
+			});
+	
+		}catch(err){
+			return res
+			.status(dictionary.status.BAD_REQUEST)
+			.send({error: err});
+		}
+		
+
 	}
 };

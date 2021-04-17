@@ -5,7 +5,9 @@ const visitorsRouter = express.Router();
 visitorsRouter.post("/visitors",visitorsControllers.store);
 
 visitorsRouter.get("/visitors", visitorsControllers.list);
+visitorsRouter.get("/visitor", visitorsControllers.search);
 visitorsRouter.put("/visitors", visitorsControllers.update);
+visitorsRouter.get("/visitors/:rg", visitorsControllers.search);
 
 
 

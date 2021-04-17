@@ -6,7 +6,7 @@ visitorsRouter.post("/visitors",visitorsControllers.store);
 
 visitorsRouter.get("/visitors", visitorsControllers.list);
 visitorsRouter.get("/visitor", visitorsControllers.search);
-visitorsRouter.put("/visitors", visitorsControllers.update);
+visitorsRouter.put("/visitors/:id", visitorsControllers.update);
 visitorsRouter.get("/visitors/:rg", visitorsControllers.search);
 
 

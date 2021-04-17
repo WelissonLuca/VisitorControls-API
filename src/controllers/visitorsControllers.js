@@ -1,7 +1,5 @@
 const Visitors = require("../Models/Visitantes");
-const { search } = require("../routes/visitors.routes");
 const dictionary = require("../utils/dictionary");
-
 
 module.exports = {
 	async store(req, res) {
@@ -22,17 +20,15 @@ module.exports = {
 				visitors,
 			});
 		} catch (err) {
-		return res
-				.status(dictionary.status.BAD_REQUEST)
-				.send({error: err});
+			return res.status(dictionary.status.BAD_REQUEST).send({ error: err });
 		}
 	},
 
-	async list (req, res) {
+	async list(req, res) {
 		try {
 			const todosVisitantes = await Visitors.findAll();
 			return res.status(dictionary.status.SUCCESS).send(todosVisitantes);
-		} catch(err) {
+		} catch (err) {
 			return res
 				.status(dictionary.status.NOT_FOUND)
 				.send({error: err.messages})
@@ -64,9 +60,31 @@ module.exports = {
 		}catch(err){
 			return res
 			.status(dictionary.status.BAD_REQUEST)
-			.send({error: err});
+			.send({ error: err.messages });
 		}
 		
 
-	}
+	},
+
+	
+	async update(req, res) {
+		try {
+			const { id } = req.params;
+			const { nome } = req.body;
+
+			const visitorId = await Visitors.findByPk(id);
+			if (visitorId == undefined)
+				return res
+					.status(dictionary.status.BAD_REQUEST)
+					.send(dictionary.messages.USER_NOT_FOUND);
+
+			const updatedVisitor = await Visitors.update({ nome }, { where: { id } });
+			return res.status(dictionary.status.SUCCESS).json(updatedVisitor);
+		} catch (err) {
+			return res
+				.status(dictionary.status.BAD_REQUEST)
+				.send({ error: err.message });
+		}
+	},
+
 };

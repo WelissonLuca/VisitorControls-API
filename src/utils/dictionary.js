@@ -18,6 +18,7 @@ const messages = {
   NO_EMPTY_FIELDS: 'Os campos não podem estar vazios',
   NAME_NOT_VALID: 'O nome deve ter 3 ou mais caracteres',
   ID_NOT_VALID: 'O número do RG não é válido',
+  DATE_NOT_VALID:'Período selecionado inválido'
 }
 
 module.exports = { status, messages }

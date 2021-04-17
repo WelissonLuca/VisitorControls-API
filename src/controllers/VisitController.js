@@ -2,6 +2,7 @@ const Visits = require("../models/Visits");
 const dictionary = require("../utils/dictionary");
 const Visitors = require("../models/Visitors");
 const Sequelize = require("sequelize");
+const moment = require("moment")
 
 class VisitController {
 	async store(req, res) {
@@ -49,15 +50,23 @@ class VisitController {
 	}
 
 	async findVisitsDate(req, res) {
-		const { date } = req.body;
-		const startDate = new Date(`${date} 00:00:00`);
-		const finalDate = new Date(`${date} 23:59:59`);
+		const { startDate, finalDate } = req.body;
+
+		
+		const inicialDate = new moment(`${startDate} 00:00:00`);
+		const endDate = new moment(`${finalDate} 23:59:59`);
+
+		if(moment(inicialDate).isAfter(endDate)){
+			return res
+				.status(dictionary.status.BAD_REQUEST)
+				.json(dictionary.messages.DATE_NOT_VALID);
+		}
 
 		const Op = Sequelize.Op;
 		const visits = await Visits.findAll({
 			where: {
 				created_at: {
-					[Op.between]: [startDate, finalDate],
+					[Op.between]: [inicialDate, endDate],
 				},
 			},
 		});

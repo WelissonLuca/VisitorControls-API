@@ -7,4 +7,6 @@ visitRouter.post("/visit",visitController.store)
 
 visitRouter.get("/visit",visitController.findVisitsRG);
 
+visitRouter.get("/visit/date",visitController.findVisitsDate);
+
 module.exports = visitRouter;

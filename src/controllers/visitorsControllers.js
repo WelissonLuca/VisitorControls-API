@@ -21,7 +21,7 @@ module.exports = {
 				visitors,
 			});
 		} catch (err) {
-			return res
+		return res
 				.status(dictionary.status.BAD_REQUEST)
 				.send({error: err});
 		}

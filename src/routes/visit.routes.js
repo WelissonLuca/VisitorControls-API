@@ -1,12 +1,12 @@
-const express = require("express");
-const visitController = require("../controllers/VisitController");
+const express = require('express')
+const visitController = require('../controllers/VisitController')
 
-const visitRouter = express.Router();
+const visitRouter = express.Router()
 
-visitRouter.post("/visit", visitController.store);
+visitRouter.post('/visit', visitController.store)
 
-visitRouter.get("/visit", visitController.findVisitsRG);
+visitRouter.get('/visit', visitController.findVisitsRG)
 
-visitRouter.get("/visit/date", visitController.findVisitsDate);
+visitRouter.get('/visit/date', visitController.findVisitsDate)
 
-module.exports = visitRouter;
+module.exports = visitRouter

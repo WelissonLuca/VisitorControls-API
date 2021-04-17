@@ -1,14 +1,12 @@
-const express = require("express");
-const visitorsControllers = require("../controllers/VisitorsControllers");
-const visitorsRouter = express.Router();
+const express = require('express')
+const visitorsControllers = require('../controllers/VisitorsControllers')
+const visitorsRouter = express.Router()
 
-visitorsRouter.post("/visitors", visitorsControllers.store);
+visitorsRouter.post('/visitors', visitorsControllers.store)
 
-visitorsRouter.get("/visitors", visitorsControllers.list);
-visitorsRouter.get("/visitor", visitorsControllers.search);
-visitorsRouter.put("/visitors/:id", visitorsControllers.update);
-visitorsRouter.get("/visitors/:rg", visitorsControllers.search);
+visitorsRouter.get('/visitors', visitorsControllers.list)
+visitorsRouter.get('/visitor', visitorsControllers.search)
+visitorsRouter.put('/visitors/:id', visitorsControllers.update)
+visitorsRouter.get('/visitors/:rg', visitorsControllers.search)
 
-
-
-module.exports = visitorsRouter;
+module.exports = visitorsRouter

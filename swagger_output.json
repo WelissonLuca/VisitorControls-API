@@ -1,0 +1,226 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/visit": {
+      "post": {
+        "tags": [
+          "Visit"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "post visit object",
+            "in": "body",
+            "description": "New visit values",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "bloco": {
+                  "type": "number",
+                  "example": 17
+                },
+                "apartamento": {
+                  "type": "number",
+                  "example": 20
+                },
+                "permitido ": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "visitante_id": {
+                  "type": "number",
+                  "example": 1
+                }
+              },
+              "required": [
+                "bloco",
+                "apartamento",
+                "permitido ",
+                "visitante_id"
+              ]
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "get": {
+        "tags": [
+          "Visit"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "rg": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/visit/date": {
+      "get": {
+        "tags": [
+          "Visit"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "startDate": {
+                  "example": "any"
+                },
+                "finalDate": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/visitors": {
+      "post": {
+        "tags": [
+          "Visitor"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "post visit object",
+            "in": "body",
+            "description": "New visit values",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "marcelo"
+                },
+                "rg": {
+                  "type": "string",
+                  "example": "848484"
+                },
+                "tipo ": {
+                  "type": "string",
+                  "example": "visitante"
+                }
+              },
+              "required": [
+                "nome",
+                "rg",
+                "tipo "
+              ]
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "get": {
+        "tags": [
+          "Visitor"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/visitor": {
+      "get": {
+        "tags": [
+          "Visitor"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/visitors/{id}": {
+      "put": {
+        "tags": [
+          "Visitor"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "post visit object",
+            "in": "body",
+            "description": "Update visit values",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Update marcelo"
+                },
+                "rg": {
+                  "type": "string",
+                  "example": "848484"
+                },
+                "tipo ": {
+                  "type": "string",
+                  "example": "visitante"
+                }
+              },
+              "required": [
+                "nome",
+                "rg",
+                "tipo "
+              ]
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/visitors/{rg}": {
+      "get": {
+        "tags": [
+          "Visitor"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "rg",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {}
+}

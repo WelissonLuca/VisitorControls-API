@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "dev": "nodemon src/index.js -e js,json"
+    "dev": "nodemon src/index.js -e js,json",
+    "swagger-autogen": "node swagger.js"
   },
   "repository": {
     "type": "git",

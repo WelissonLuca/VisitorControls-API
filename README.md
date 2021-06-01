@@ -92,9 +92,11 @@ Inicie o projeto usando o comando
 npm run dev
 ```
 
-Para documentação com swagger acesse este rota 
+API-DOCS
 
 ```url
+
+http://localhost:3000/api-docs/
 
 ```
 </p>
